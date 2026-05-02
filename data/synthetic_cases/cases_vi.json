@@ -1,0 +1,51 @@
+[
+  {
+    "id": "CASE-01",
+    "title": "Nhận thông báo kiểm đếm",
+    "summary": "Một hộ gia đình nhận thông báo kiểm đếm phục vụ dự án công cộng. Hộ có giấy chứng nhận quyền sử dụng đất nhưng chưa biết cần chuẩn bị giấy tờ gì.",
+    "expected_outputs": [
+      "plain_language_summary",
+      "document_checklist",
+      "questions_to_authority"
+    ]
+  },
+  {
+    "id": "CASE-02",
+    "title": "Thiếu giấy tờ xây dựng nhà ở",
+    "summary": "Một hộ có nhà trên đất nhưng hồ sơ xây dựng chưa đầy đủ. Hộ muốn biết cần chuẩn bị gì trước khi làm việc với đơn vị kiểm đếm.",
+    "expected_outputs": [
+      "risk_notes",
+      "document_checklist",
+      "draft_request_letter"
+    ]
+  },
+  {
+    "id": "CASE-03",
+    "title": "Không đồng ý kết quả kiểm đếm cây trồng",
+    "summary": "Người dân cho rằng số lượng cây trồng trong biên bản kiểm đếm chưa đúng với thực tế và muốn đề nghị kiểm tra lại.",
+    "expected_outputs": [
+      "procedural_explanation",
+      "draft_recheck_letter"
+    ]
+  },
+  {
+    "id": "CASE-04",
+    "title": "Chưa rõ điều kiện tái định cư",
+    "summary": "Một hộ bị thu hồi đất ở muốn biết mình có thể được xem xét bố trí tái định cư hay không, nhưng chưa hiểu điều kiện và hồ sơ cần chuẩn bị.",
+    "expected_outputs": [
+      "plain_language_summary",
+      "questions_to_authority",
+      "document_checklist"
+    ]
+  },
+  {
+    "id": "CASE-05",
+    "title": "Không hiểu phương án bồi thường",
+    "summary": "Một hộ nhận dự thảo phương án bồi thường nhưng chưa hiểu sự khác nhau giữa bồi thường, hỗ trợ và tái định cư.",
+    "expected_outputs": [
+      "plain_language_summary",
+      "term_explanation",
+      "draft_clarification_letter"
+    ]
+  }
+]
