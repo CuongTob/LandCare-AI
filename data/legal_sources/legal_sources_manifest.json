@@ -1,0 +1,293 @@
+{
+  "manifest_version": "1.0",
+  "project": "LandCare AI",
+  "created_for": "Tôn Thất Minh Cường",
+  "purpose": "Danh mục nguồn pháp lý lõi để app biết cần văn bản nào, bổ sung file dần, rồi index bằng Legal RAG/File Search.",
+  "principles": [
+    "Chỉ dùng văn bản chính thức làm căn cứ pháp lý cuối.",
+    "Nguồn tham khảo không được dùng thay văn bản gốc.",
+    "Mỗi phản hồi pháp lý phải truy ngược được tới văn bản, điều, khoản, điểm hoặc ghi rõ chưa đủ căn cứ.",
+    "Không đưa API key, dữ liệu cá nhân, hồ sơ thật vào repository công khai."
+  ],
+  "storage_convention": {
+    "official_sources_folder": "data/legal_sources/official/",
+    "reference_sources_folder": "data/legal_sources/reference/",
+    "excluded_sources_folder": "data/legal_sources/excluded/",
+    "file_naming_rule": "YYYY_docno_shorttitle.ext",
+    "ingestion_status_values": [
+      "missing_file",
+      "file_added",
+      "indexed",
+      "verified",
+      "deprecated"
+    ]
+  },
+  "official_sources": [
+    {
+      "id": "VN_LAW_2024_31_QH15_LUAT_DAT_DAI",
+      "priority": 1,
+      "tier": "A_official_core",
+      "status": "missing_file",
+      "title": "Luật Đất đai",
+      "document_no": "31/2024/QH15",
+      "document_type": "Luật",
+      "issuing_authority": "Quốc hội",
+      "issue_date": "2024-01-18",
+      "effective_date": "2025-01-01",
+      "official_url": "https://vanban.chinhphu.vn/?classid=1&docid=211189&pageid=27160&typegroupid=3",
+      "expected_attachments": [
+        "31-2024-qh15_1.pdf",
+        "31-2024-qh15_2.pdf",
+        "31-2024-qh15_3.pdf"
+      ],
+      "local_file_path": "data/legal_sources/official/2024_31_QH15_Luat_Dat_Dai.pdf",
+      "topics": [
+        "thu_hoi_dat",
+        "kiem_dem",
+        "boi_thuong_ho_tro_tai_dinh_cu",
+        "tai_dinh_cu"
+      ],
+      "initial_article_map": [
+        "Điều 87",
+        "Điều 88",
+        "Điều 91",
+        "Điều 102",
+        "Điều 103",
+        "Điều 111"
+      ],
+      "use_in_app": "Nguồn luật lõi để xác định khung điều/khoản/điểm."
+    },
+    {
+      "id": "VN_LAW_2024_43_QH15_SUA_DOI_LIEN_QUAN_DAT_DAI",
+      "priority": 2,
+      "tier": "A_official_core",
+      "status": "missing_file",
+      "title": "Luật sửa đổi, bổ sung một số điều của Luật Đất đai, Luật Nhà ở, Luật Kinh doanh bất động sản và Luật Các tổ chức tín dụng",
+      "document_no": "43/2024/QH15",
+      "document_type": "Luật",
+      "issuing_authority": "Quốc hội",
+      "issue_date": "2024-06-29",
+      "effective_date": "2024-08-01",
+      "official_url": "https://vanban.chinhphu.vn/?classid=1&docid=211201&orggroupid=1&pageid=27160",
+      "expected_attachments": [
+        "43-2024-qh15.pdf"
+      ],
+      "local_file_path": "data/legal_sources/official/2024_43_QH15_Luat_Sua_Doi_Lien_Quan_Dat_Dai.pdf",
+      "topics": [
+        "hieu_luc_luat_dat_dai_2024",
+        "sua_doi_bo_sung_luat_dat_dai"
+      ],
+      "initial_article_map": [
+        "Đối chiếu các điều sửa đổi/bổ sung",
+        "Đối chiếu hiệu lực thi hành"
+      ],
+      "use_in_app": "Nguồn kiểm tra hiệu lực và sửa đổi liên quan trước khi viện dẫn luật gốc."
+    },
+    {
+      "id": "VN_DECREE_2024_88_NDCP_BTHTTDC",
+      "priority": 3,
+      "tier": "A_official_core",
+      "status": "missing_file",
+      "title": "Quy định về bồi thường, hỗ trợ, tái định cư khi Nhà nước thu hồi đất",
+      "document_no": "88/2024/NĐ-CP",
+      "document_type": "Nghị định",
+      "issuing_authority": "Chính phủ",
+      "issue_date": "2024-07-15",
+      "effective_date": "2024-08-01",
+      "official_url": "https://vanban.chinhphu.vn/?docid=210658&pageid=27160",
+      "expected_attachments": [
+        "88nd.signed.pdf"
+      ],
+      "local_file_path": "data/legal_sources/official/2024_88_NDCP_Boi_Thuong_Ho_Tro_Tai_Dinh_Cu.pdf",
+      "topics": [
+        "boi_thuong_dat",
+        "boi_thuong_tai_san",
+        "ho_tro",
+        "tai_dinh_cu",
+        "phuong_an_boi_thuong"
+      ],
+      "initial_article_map": [
+        "Điều 3",
+        "Điều 8",
+        "Điều 9",
+        "Điều 10",
+        "Điều 11",
+        "Điều 14"
+      ],
+      "use_in_app": "Nguồn nghị định chi tiết quan trọng nhất cho bồi thường, hỗ trợ, tái định cư."
+    },
+    {
+      "id": "VN_DECREE_2024_101_NDCP_DANG_KY_CAP_GCN",
+      "priority": 4,
+      "tier": "A_official_core",
+      "status": "missing_file",
+      "title": "Quy định về điều tra cơ bản đất đai; đăng ký, cấp Giấy chứng nhận và Hệ thống thông tin đất đai",
+      "document_no": "101/2024/NĐ-CP",
+      "document_type": "Nghị định",
+      "issuing_authority": "Chính phủ",
+      "issue_date": "2024-07-29",
+      "effective_date": "2024-08-01",
+      "official_url": "https://vanban.chinhphu.vn/?docid=210770&pageid=27160",
+      "expected_attachments": [],
+      "local_file_path": "data/legal_sources/official/2024_101_NDCP_Dang_Ky_Cap_GCN_He_Thong_TTDD.pdf",
+      "topics": [
+        "dang_ky_dat_dai",
+        "cap_giay_chung_nhan",
+        "ho_so_nguon_goc_dat",
+        "he_thong_thong_tin_dat_dai"
+      ],
+      "initial_article_map": [
+        "Đối chiếu nhóm điều về đăng ký đất đai",
+        "Đối chiếu nhóm điều về cấp Giấy chứng nhận"
+      ],
+      "use_in_app": "Nguồn bổ trợ cho tình huống thiếu giấy tờ, nguồn gốc đất, cấp GCN."
+    },
+    {
+      "id": "VN_DECREE_2024_102_NDCP_CHI_TIET_LUAT_DAT_DAI",
+      "priority": 5,
+      "tier": "A_official_core",
+      "status": "missing_file",
+      "title": "Quy định chi tiết thi hành một số điều của Luật Đất đai",
+      "document_no": "102/2024/NĐ-CP",
+      "document_type": "Nghị định",
+      "issuing_authority": "Chính phủ",
+      "issue_date": "2024-07-30",
+      "effective_date": "2024-08-01",
+      "official_url": "https://vanban.chinhphu.vn/?classid=1&docid=210795&pageid=27160&typegroupid=4",
+      "expected_attachments": [],
+      "local_file_path": "data/legal_sources/official/2024_102_NDCP_Chi_Tiet_Thi_Hanh_Luat_Dat_Dai.pdf",
+      "topics": [
+        "trinh_tu_thu_tuc_thu_hoi_dat",
+        "kiem_dem_bat_buoc",
+        "cuong_che_kiem_dem"
+      ],
+      "initial_article_map": [
+        "Điều 36",
+        "Đối chiếu nhóm điều hướng dẫn Điều 87, Điều 88 Luật Đất đai 2024"
+      ],
+      "use_in_app": "Nguồn hướng dẫn thủ tục, đặc biệt khi xác định trình tự/kiểm đếm/cưỡng chế."
+    },
+    {
+      "id": "VN_DECREE_2025_151_NDCP_PHAN_DINH_THAM_QUYEN_DAT_DAI",
+      "priority": 6,
+      "tier": "A_official_core",
+      "status": "missing_file",
+      "title": "Quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp, phân quyền, phân cấp trong lĩnh vực đất đai",
+      "document_no": "151/2025/NĐ-CP",
+      "document_type": "Nghị định",
+      "issuing_authority": "Chính phủ",
+      "issue_date": "2025-06-12",
+      "effective_date": "2025-07-01",
+      "official_url": "https://vanban.chinhphu.vn/?docid=213927&pageid=27160",
+      "expected_attachments": [],
+      "local_file_path": "data/legal_sources/official/2025_151_NDCP_Phan_Dinh_Tham_Quyen_Dat_Dai.pdf",
+      "topics": [
+        "tham_quyen",
+        "ubnd_cap_xa",
+        "ubnd_cap_tinh",
+        "phan_cap_phan_quyen_dat_dai"
+      ],
+      "initial_article_map": [
+        "Đối chiếu nhóm điều/khoản về thẩm quyền trong lĩnh vực đất đai"
+      ],
+      "use_in_app": "Nguồn kiểm tra cơ quan có thẩm quyền khi app hướng dẫn người dân gửi văn bản."
+    },
+    {
+      "id": "VN_DECREE_2025_226_NDCP_SUA_DOI_ND_HUONG_DAN_LUAT_DAT_DAI",
+      "priority": 7,
+      "tier": "A_official_core_update",
+      "status": "missing_file",
+      "title": "Sửa đổi, bổ sung một số điều của các nghị định quy định chi tiết thi hành Luật Đất đai",
+      "document_no": "226/2025/NĐ-CP",
+      "document_type": "Nghị định",
+      "issuing_authority": "Chính phủ",
+      "issue_date": "2025-08-15",
+      "effective_date": "2025-08-15",
+      "official_url": "https://vanban.chinhphu.vn/?docid=214955&pageid=27160",
+      "expected_attachments": [
+        "226nd.signed.pdf"
+      ],
+      "local_file_path": "data/legal_sources/official/2025_226_NDCP_Sua_Doi_Nghi_Dinh_Huong_Dan_Luat_Dat_Dai.pdf",
+      "topics": [
+        "sua_doi_nghi_dinh_dat_dai",
+        "cap_nhat_can_cu_phap_ly"
+      ],
+      "initial_article_map": [
+        "Đối chiếu toàn bộ điều khoản sửa đổi các nghị định hướng dẫn Luật Đất đai"
+      ],
+      "use_in_app": "Nguồn cập nhật bắt buộc trước khi app kết luận theo các nghị định gốc."
+    },
+    {
+      "id": "VN_DECREE_2026_49_NDCP_GO_VUONG_THI_HANH_LUAT_DAT_DAI",
+      "priority": 8,
+      "tier": "A_official_core_update",
+      "status": "missing_file",
+      "title": "Quy định chi tiết và hướng dẫn một số điều của Nghị quyết số 254/2025/QH15 về tháo gỡ khó khăn, vướng mắc trong tổ chức thi hành Luật Đất đai",
+      "document_no": "49/2026/NĐ-CP",
+      "document_type": "Nghị định",
+      "issuing_authority": "Chính phủ",
+      "issue_date": "2026-01-31",
+      "effective_date": "2026-01-31",
+      "official_url": "https://vanban.chinhphu.vn/?docid=216860&pageid=27160",
+      "expected_attachments": [
+        "49-2026ndcp.signed.pdf"
+      ],
+      "local_file_path": "data/legal_sources/official/2026_49_NDCP_Go_Vuong_Thi_Hanh_Luat_Dat_Dai.pdf",
+      "topics": [
+        "go_vuong_thi_hanh_luat_dat_dai",
+        "co_che_chinh_sach_dac_thu",
+        "cap_nhat_can_cu_2026"
+      ],
+      "initial_article_map": [
+        "Đối chiếu phạm vi áp dụng theo Nghị quyết 254/2025/QH15"
+      ],
+      "use_in_app": "Nguồn cập nhật mới khi tình huống thuộc nhóm khó khăn, vướng mắc trong thi hành Luật Đất đai."
+    },
+    {
+      "id": "VN_DECISION_2024_222_QDTTG_KE_HOACH_THI_HANH_LDD",
+      "priority": 20,
+      "tier": "B_official_reference",
+      "status": "missing_file",
+      "title": "Ban hành Kế hoạch triển khai thi hành Luật Đất đai số 31/2024/QH15",
+      "document_no": "222/QĐ-TTg",
+      "document_type": "Quyết định",
+      "issuing_authority": "Thủ tướng Chính phủ",
+      "issue_date": "2024-03-05",
+      "effective_date": "",
+      "official_url": "https://vanban.chinhphu.vn/?docid=209853&pageid=27160",
+      "expected_attachments": [
+        "222-ttg.signed.pdf"
+      ],
+      "local_file_path": "data/legal_sources/official/2024_222_QDTTG_Ke_Hoach_Thi_Hanh_Luat_Dat_Dai.pdf",
+      "topics": [
+        "ke_hoach_trien_khai_luat_dat_dai",
+        "lo_trinh_thi_hanh"
+      ],
+      "initial_article_map": [
+        "Không dùng làm căn cứ trực tiếp để kết luận quyền/nghĩa vụ của người dân"
+      ],
+      "use_in_app": "Nguồn tham khảo chính thức về lộ trình/triển khai, không phải căn cứ trực tiếp cho hồ sơ người dân."
+    }
+  ],
+  "reference_sources_policy": {
+    "allowed_reference_types": [
+      "Bài phân tích uy tín",
+      "Bài tổng hợp danh mục văn bản",
+      "Bài giải thích chính sách"
+    ],
+    "not_allowed_as_final_legal_basis": [
+      "YouTube",
+      "Blog SEO",
+      "Bài viết không dẫn nguồn văn bản chính thức",
+      "Nguồn thương mại không xác minh văn bản gốc"
+    ],
+    "rule": "Nếu nguồn tham khảo mâu thuẫn với văn bản chính thức, luôn ưu tiên văn bản chính thức."
+  },
+  "next_actions": [
+    "Tải file PDF chính thức của priority 1-8.",
+    "Đặt file đúng local_file_path.",
+    "Cập nhật status từ missing_file sang file_added.",
+    "Chạy index bằng Legal RAG/File Search.",
+    "Cập nhật status thành indexed, sau kiểm tra thành verified."
+  ]
+}
