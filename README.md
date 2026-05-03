@@ -95,6 +95,13 @@ streamlit run app/app.py
 - Always show a non-official disclaimer.
 - Use public legal documents and synthetic cases only.
 
+## Legal Sources Manifest
+
+LandCare AI now includes a legal-source manifest located at:
+
+```text
+data/legal_sources/legal_sources_manifest.json
+
 ## Author
 
 **Tôn Thất Minh Cường**  
