@@ -102,6 +102,109 @@ LandCare AI now includes a legal-source manifest located at:
 ```text
 data/legal_sources/legal_sources_manifest.json
 
+## Legal Sources Manifest
+
+LandCare AI now includes a legal-source manifest located at:
+
+```text
+data/legal_sources/legal_sources_manifest.json
+```
+
+This manifest tells the app which official legal documents should be added, verified, indexed, and used as legal sources.
+
+### Source folders
+
+```text
+data/legal_sources/official/
+data/legal_sources/reference/
+data/legal_sources/excluded/
+```
+
+### Source classification
+
+| Folder | Purpose |
+|---|---|
+| `official/` | Official legal documents used as primary legal authority |
+| `reference/` | Articles, explanations, and secondary materials used only for background reference |
+| `excluded/` | Sources that should not be used for legal reasoning, such as videos, SEO articles, or unverified summaries |
+
+### Legal answer rule
+
+LandCare AI should not provide a legal conclusion unless the answer can be traced back to:
+
+- legal document;
+- article;
+- clause;
+- point, if available;
+- source excerpt or verified legal basis.
+
+If the legal basis is not available, the app must state:
+
+> Chưa đủ căn cứ để kết luận; cần đối chiếu hồ sơ/văn bản gốc.
+
+## Legal RAG Roadmap
+
+The next technical step is to connect the legal-source manifest with a retrieval layer.
+
+Planned flow:
+
+```text
+User question
+→ Case classification
+→ Legal source manifest
+→ Official legal document retrieval
+→ Legal Evidence Pack
+→ Gemini response constrained by evidence
+→ Final answer with legal basis
+```
+
+## How to add official legal documents
+
+1. Download the official PDF/DOCX/TXT file from a trusted official source.
+2. Place the file in:
+
+```text
+data/legal_sources/official/
+```
+
+3. Update the corresponding item in:
+
+```text
+data/legal_sources/legal_sources_manifest.json
+```
+
+Change:
+
+```json
+"status": "missing_file"
+```
+
+to:
+
+```json
+"status": "file_added"
+```
+
+4. After indexing, update the status to:
+
+```json
+"status": "indexed"
+```
+
+5. After checking that article/clause/point retrieval works correctly, update the status to:
+
+```json
+"status": "verified"
+```
+
+## Safety rules
+
+- Do not upload real citizen records.
+- Do not upload internal or confidential documents.
+- Do not commit API keys or `.env` files.
+- Do not use articles, videos, or summaries as final legal authority.
+- Official legal documents always take priority over reference materials.
+
 ## Author
 
 **Tôn Thất Minh Cường**  
